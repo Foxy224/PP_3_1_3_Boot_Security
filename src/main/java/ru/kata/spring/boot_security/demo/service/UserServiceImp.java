@@ -39,6 +39,8 @@ public class UserServiceImp implements UsersService {
     public User showUser(long id) {
         return userRepository.getOne(id);
     }
+
+    @Transactional
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
