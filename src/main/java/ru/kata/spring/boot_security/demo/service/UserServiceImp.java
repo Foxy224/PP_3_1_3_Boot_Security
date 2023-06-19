@@ -3,7 +3,7 @@ package ru.kata.spring.boot_security.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.kata.spring.boot_security.demo.entity.Users;
+import ru.kata.spring.boot_security.demo.entity.User;
 import ru.kata.spring.boot_security.demo.repositories.UserRepository;
 
 import java.util.List;
@@ -17,7 +17,7 @@ public class UserServiceImp implements UsersService {
     }
 
     @Transactional
-    public void add(Users user) {
+    public void add(User user) {
         userRepository.save(user);
     }
 
@@ -27,19 +27,19 @@ public class UserServiceImp implements UsersService {
     }
 
     @Transactional(readOnly = true)
-    public List<Users> read() {
+    public List<User> read() {
         return userRepository.findAll();
     }
 
     @Transactional
-    public void update(Users user) {
+    public void update(User user) {
         userRepository.save(user);
     }
     @Transactional
-    public Users showUser(long id) {
+    public User showUser(long id) {
         return userRepository.getOne(id);
     }
-    public Users findByUsername(String username) {
+    public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 }
